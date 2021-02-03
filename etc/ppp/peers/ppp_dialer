@@ -1,0 +1,15 @@
+TIMEOUT 5
+ECHO ON
+ABORT '\nBUSY\r'
+ABORT '\nERROR\r'
+ABORT '\nRINGING\r\n\r\nRINGING\r'
+ABORT '\nCOMMAND NO RESPONSE!\r'
+''AT
+TIMEOUT 60
+SAY "Press CTRL-C to break the connection process.\n"
+OK 'ATE0'
+OK 'ATD*99#'
+TIMEOUT 60
+SAY "Waiting for connect...\n"
+CONNECT ''
+SAY "connect Success!\n"

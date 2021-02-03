@@ -1,0 +1,12 @@
+/dev/ttyUSB2
+115200
+nolock
+local
+debug
+nocrtscts
+nodetach
+noauth
+usepeerdns
+nodefaultroute
+user ''
+connect 'chat -s -v -f /etc/ppp/peers/ppp_dialer'

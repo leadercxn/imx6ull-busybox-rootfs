@@ -1,0 +1,22 @@
+#bin/sh
+
+PATH=/sbin:/bin:/usr/sbin:/usr/bin:$PATH
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/lib:/usr/lib
+export PATH LD_LIBRARY_PATH
+mount -a
+mkdir /dev/pts
+mount -t devpts devpts /dev/pts
+
+#mdev机制
+echo /sbin/mdev > /proc/sys/kernel/hotplug
+mdev -s
+
+#开机自起启
+#cd /drivers
+#./test &
+#cd /
+
+cd /usr/bin
+./app_lcd /dev/tty1
+cd ..
+
